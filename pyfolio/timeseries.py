@@ -898,7 +898,7 @@ def get_max_drawdown_underwater(underwater):
         recovery = underwater[valley:][underwater[valley:] == 0].index[0]
     except IndexError:
         recovery = np.nan  # drawdown not recovered
-    return peak, valley, recovery
+    return peak, underwater[valley:].index[0], recovery
 
 
 def get_max_drawdown(returns):
